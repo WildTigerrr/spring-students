@@ -43,10 +43,10 @@ public class Student {
     }
 
     public void study() {
-        log.info(getName() + " (" + getAge() + ") with teacher " + getTeacher().getName() + " grades:");
+        log.info("I'm " + getName());
+        log.info("I study with teacher " + getTeacher().getName() + ", this subjects:");
         for (Subject subject : subjects) {
-            log.info(
-                    subject.getName() + ", grade: " + grades.get(subject.getName()));
+            log.info(subject.getName() + ", and have these mark: " + grades.get(subject.getName()));
         }
     }
 
