@@ -4,9 +4,13 @@ import com.students.entity.impl.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 @Slf4j
+@ComponentScan
+@PropertySource("classpath:values.properties")
 public class Application {
 
     public static void main(String[] args) {
@@ -16,7 +20,7 @@ public class Application {
     }
 
     private static void initByAnnotations() {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(StudentConfiguration.class);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(Application.class);
         Student student = ctx.getBean(Student.class);
         log.info("Studying with Annotations:");
         student.study();
